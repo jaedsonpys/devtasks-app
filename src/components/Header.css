@@ -1,0 +1,35 @@
+.header-container {
+    width: 100%;
+    padding: 50px 50px 0 50px;
+}
+
+.header-container nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: #F9BB1C;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.auth-container {
+    display: flex;
+    align-items: center;
+}
+
+.auth-container a {
+    color: #F9BB1C;
+    font-weight: 600;
+    text-decoration-color: #F9BB1C;
+}
+
+.auth-container a:hover {
+    text-decoration: none;
+}
+
+.auth-container .login-link {
+    margin-right: 40px;
+}
