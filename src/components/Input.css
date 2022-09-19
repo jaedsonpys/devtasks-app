@@ -5,6 +5,7 @@
     box-shadow: 0px 0px 10px rgb(194, 194, 194);
     border-radius: 5px;
     padding: 0px 15px;
+    height: 45px;
 }
 
 .input-box .icon-box {
@@ -23,7 +24,6 @@
 .input-box input {
     border: none;   
     outline: none;
-    height: 45px;
     width: 270px;
 
     font-family: 'Poppins', sans-serif;
