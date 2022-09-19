@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 
 import Header from '../components/Header';
 import './Home.css'
@@ -14,7 +15,9 @@ export default function Home() {
                     <p>Adicione suas tarefas de forma 
                     simples, rápida e organizada.</p>
                     <div className="button-container">
-                        <button>Comece agora <Icon className='pencil-icon' icon="clarity:pencil-line" /></button>
+                        <Link to='/register' className='button'>
+                            Comece agora <Icon className='pencil-icon' icon="clarity:pencil-line" />
+                        </Link>
                     </div>
                 </div>
             </div>

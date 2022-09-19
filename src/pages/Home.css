@@ -48,7 +48,7 @@
     align-items: center;
 }
 
-.button-container button {
+.button-container .button {
     display: flex;
     justify-content: center;
 
@@ -62,18 +62,19 @@
     font-weight: 600;
     color: #F9BB1C;
     font-size: 1rem;
+    text-decoration: none;
 
     cursor: pointer;
     transition: 200ms;
 }
 
-.button-container button:hover {
+.button-container .button:hover {
     background-color: #F9BB1C;
     color: white;
     transition: 200ms;
 }
 
-.button-container button:hover .pencil-icon {
+.button-container .button:hover .pencil-icon {
     rotate: 0deg;
 }
 
