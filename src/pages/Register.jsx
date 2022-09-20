@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from '../components/Header';
 import Input from '../components/Input';
+import Button from '../components/Button';
 
 import './Register.css'
 
@@ -16,6 +17,7 @@ export default function Register() {
                 <div className="form">
                     <Input type='text' placeholder='Seu email' icon='carbon:email'/>
                     <Input type='password' placeholder='Crie uma senha' icon='carbon:password'/>
+                    <Button text='Criar conta' onClick={() => console.log('register')}/>
                 </div>
             </div>
         </>
