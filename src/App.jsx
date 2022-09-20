@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
@@ -9,13 +9,13 @@ export default function App() {
     return (
         <Router>
             <Routes>
-                <Route path='/' element={<Home/>}/>
+                <Route exact path='/' element={<Home/>}/>
             </Routes>
             <Routes>
-                <Route path='/register' element={<Register/>}/>
+                <Route exact path='/register' element={<Register/>}/>
             </Routes>
             <Routes>
-                <Route path='/login' element={<Login/>}/>
+                <Route exact path='/login' element={<Login/>}/>
             </Routes>
         </Router>
     )
