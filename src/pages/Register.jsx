@@ -6,20 +6,26 @@ import Button from '../components/Button';
 
 import './Register.css'
 
-export default function Register() {
-    return (
-        <>
-            <Header/>
-            <div className="register-container">
-                <div className="title">
-                    <h1>Crie uma nova conta.</h1>
+export default class Register extends React.Component {
+    componentDidMount() {
+        document.title = 'Crie sua conta na DevTasks';
+    }
+
+    render() {
+        return (
+            <>
+                <Header/>
+                <div className="register-container">
+                    <div className="title">
+                        <h1>Crie uma nova conta.</h1>
+                    </div>
+                    <div className="form">
+                        <Input type='text' placeholder='Seu email' icon='carbon:email'/>
+                        <Input type='password' placeholder='Crie uma senha' icon='carbon:password'/>
+                        <Button text='Criar conta' onClick={() => console.log('register')}/>
+                    </div>
                 </div>
-                <div className="form">
-                    <Input type='text' placeholder='Seu email' icon='carbon:email'/>
-                    <Input type='password' placeholder='Crie uma senha' icon='carbon:password'/>
-                    <Button text='Criar conta' onClick={() => console.log('register')}/>
-                </div>
-            </div>
-        </>
-    )
+            </>
+        )
+    }
 }
