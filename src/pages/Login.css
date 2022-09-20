@@ -1,12 +1,20 @@
 .login-container {
     width: max-content;
-    max-width: 320px;
+    min-width: 320px;
     margin: 50px auto;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(201, 201, 201);
+    padding: 50px 40px;
+}
+
+.login-container .title {
+    width: 320px;
 }
 
 .login-container .title h1 {
@@ -21,8 +29,4 @@
 
 .form .input-box {
     margin-bottom: 20px;
-}
-
-.form .action-button {
-    margin-top: 50px;
 }
