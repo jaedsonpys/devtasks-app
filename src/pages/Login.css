@@ -1,5 +1,6 @@
 .login-container {
     width: max-content;
+    max-width: 320px;
     margin: 50px auto;
 
     display: flex;
@@ -8,20 +9,14 @@
     align-items: center;
 }
 
-.login-container .title {
-    max-width: 270px;
-}
-
 .login-container .title h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    text-align-last: center;
+    font-size: 2rem;
     color: #161616;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .form {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .form .input-box {
