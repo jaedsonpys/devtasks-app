@@ -1,0 +1,29 @@
+.register-container {
+    width: max-content;
+    margin: 5% auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container .title {
+    max-width: 250px;
+}
+
+.register-container .title h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    text-align-last: center;
+    color: #161616;
+    font-weight: 500;
+}
+
+.form {
+    margin-top: 30px;
+}
+
+.form .input-box {
+    margin-bottom: 20px;
+}

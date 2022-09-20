@@ -3,6 +3,8 @@ import React from 'react';
 import Header from '../components/Header';
 import Input from '../components/Input';
 
+import './Register.css'
+
 export default function Register() {
     return (
         <>
