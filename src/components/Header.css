@@ -22,7 +22,7 @@
 
 .auth-container a {
     color: #F9BB1C;
-    font-weight: 600;
+    font-weight: 300;
     text-decoration-color: #F9BB1C;
 }
 
@@ -31,5 +31,5 @@
 }
 
 .auth-container .login-link {
-    margin-right: 40px;
+    margin-right: 60px;
 }
