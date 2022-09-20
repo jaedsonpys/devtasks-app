@@ -1,0 +1,21 @@
+.action-button {
+    height: 40px;
+    width: 320px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+
+    border-radius: 5px;
+    background-color: #F9BB1C;
+    color: white;
+    border: 2px solid #F9BB1C;
+
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.action-button:hover {
+    background-color: unset;
+    color: #F9BB1C;
+}
