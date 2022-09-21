@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import Todo from './pages/Todo'
 
 export default function App() {
     return (
@@ -16,6 +17,9 @@ export default function App() {
             </Routes>
             <Routes>
                 <Route exact path='/login' element={<Login/>}/>
+            </Routes>
+            <Routes>
+                <Route exact path='/todo' element={<Todo/>}/>
             </Routes>
         </Router>
     )
