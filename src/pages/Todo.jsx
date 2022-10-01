@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from '@iconify/react';
 
 export default class Todo extends React.Component {
     componentDidMount() {
@@ -7,9 +8,17 @@ export default class Todo extends React.Component {
 
     render() {
         return (
-            <>
-                <h1>Hello world</h1>
-            </>
+            <div className="todo-container">
+                <div className="todo-tile">
+                    <h1>Suas tarefas</h1>
+                </div>
+                <form className='add-task-form'>
+                    <div className="add-task-input-box">
+                        <input type="text" placeholder='Adicionar nova tarefa'/>
+                        <Icon className='add-icon' icon='carbon:add'/>
+                    </div>
+                </form>
+            </div>
         )
     }
 }
