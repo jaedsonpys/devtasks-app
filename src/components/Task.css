@@ -1,15 +1,17 @@
 .task-container {
+    min-height: 50px;
     width: 350px;
-    height: auto;
     background-color: #F9BB1C;
     border-radius: 5px 5px 20px 5px;
 
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
 .task-container .task-title-box {
+    display: flex;
+    align-items: center;
+
     max-width: 270px;
     word-wrap: break-word;
     padding-top: 5px;
@@ -17,20 +19,28 @@
     padding-left: 15px;
 }
 
-.task-container .task-action-box {
-    height: 100%;
+.task-container .task-title-box h2 {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: white;
 }
 
 .task-container .task-action {
-    width: 50px;
     height: 100%;
     border-left: 2px solid white;
 }
 
 .task-container .task-action button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border: none;
     background-color: unset;
     color: white;
     font-size: 2rem;
     height: 100%;
+    padding: 0px 10px;
+
+    cursor: pointer;
 }
