@@ -1,5 +1,5 @@
 .task-container {
-    min-height: 50px;
+    min-height: 45px;
     width: 350px;
     background-color: #F9BB1C;
     border-radius: 5px 5px 20px 5px;
@@ -10,7 +10,8 @@
 
 .task-container .task-title-box {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 
     max-width: 270px;
     word-wrap: break-word;
@@ -21,8 +22,10 @@
 
 .task-container .task-title-box h2 {
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: white;
+    word-wrap: break-word;
+
 }
 
 .task-container .task-action {
