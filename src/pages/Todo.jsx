@@ -22,6 +22,14 @@ export default class Todo extends React.Component {
                         </div>
                     </div>
                 </form>
+                <div className="tasks-container">
+                    
+                </div>
+                <div className="footer-logo">
+                    <a href="/">
+                        <h1>devtasks</h1>
+                    </a>
+                </div>
             </div>
         )
     }
