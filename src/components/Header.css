@@ -25,7 +25,9 @@
 }
 
 .auth-container a {
-    text-decoration-color: white;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 5px;
 }
 
 .auth-container h2 {
@@ -33,10 +35,19 @@
     font-weight: 500;
 }
 
-.auth-container a:hover {
-    text-decoration: none;
+.auth-container .login-link {
+    margin-right: 30px;
 }
 
-.auth-container .login-link {
-    margin-right: 60px;
+.auth-container .register-link {
+    background-color: #F9BB1C;
+}
+
+.auth-container .register-link:hover {
+    box-shadow: 0 0 15px 0 #bb8c14;
+}
+
+.auth-container .login-link:hover,
+.auth-container .login-link:hover h2 {
+    text-decoration: underline white;
 }
