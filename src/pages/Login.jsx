@@ -9,28 +9,37 @@ import api from '../services/api';
 
 import './Login.css'
 
-export default function Register() {
+export default function Login() {
     const navigate = useNavigate();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [userPassword, setUserPassword] = useState('');
 
-    const registerUser = () => {
+    const loginUser = () => {
         api
-            .post('/api/register', {
-                email: email,
-                password: password
+            .post('/api/login', {
+                email: userEmail,
+                password: userPassword
             })
             .then((response) => {
                 if(response.status === 201) {
                     localStorage.setItem('uAuth', response.data.token);
-                    localStorage.setItem('uEmail', email);
-                    localStorage.setItem('uAuth', password);
+                    localStorage.setItem('uEmail', userEmail);
+                    localStorage.setItem('uAuth', userPassword);
 
                     navigate('/todo');
+                    console.log(response);
                 }
             })
             .catch((error) => console.error(error));
+    }
+
+    const onChangeEmailInput = (e) => {
+        setUserEmail(e.target.value);
+    }
+
+    const onChangePasswordInput = (e) => {
+        setUserPassword(e.target.value);
     }
 
     return (
@@ -41,9 +50,9 @@ export default function Register() {
                     <h1>Faça login na sua conta</h1>
                 </div>
                 <div className="form">
-                    <Input type='text' onChange={(e) => setEmail(e.target.value)} value={email} placeholder='Seu email' icon='carbon:email'/>
-                    <Input type='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Sua senha' icon='carbon:password'/>
-                    <Button text='Entrar na conta' onClick={registerUser}/>
+                    <Input type='text' onChange={onChangeEmailInput} value={userEmail} placeholder='Seu email' icon='carbon:email'/>
+                    <Input type='password' onChange={onChangePasswordInput} value={userPassword} placeholder='Sua senha' icon='carbon:password'/>
+                    <Button text='Entrar na conta' onClick={loginUser}/>
                 </div>
             </div>
         </>
