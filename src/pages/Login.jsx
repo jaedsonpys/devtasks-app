@@ -25,7 +25,7 @@ export default function Login() {
                 if(response.status === 201) {
                     localStorage.setItem('uAuth', response.data.token);
                     localStorage.setItem('uEmail', userEmail);
-                    localStorage.setItem('uAuth', userPassword);
+                    localStorage.setItem('uPassword', userPassword);
 
                     navigate('/todo');
                     console.log(response);
