@@ -22,7 +22,7 @@ export default function Register() {
                 password: userPassword
             })
             .then((response) => {
-                if(response.status == 201) {
+                if(response.status === 201) {
                     localStorage.setItem('uAuth', response.data.token);
                     navigate('/todo');
                 }
