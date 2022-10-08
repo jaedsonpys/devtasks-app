@@ -24,11 +24,7 @@ export default function Login() {
             .then((response) => {
                 if(response.status === 201) {
                     localStorage.setItem('uAuth', response.data.token);
-                    localStorage.setItem('uEmail', userEmail);
-                    localStorage.setItem('uPassword', userPassword);
-
                     navigate('/todo');
-                    console.log(response);
                 }
             })
             .catch((error) => console.error(error));
