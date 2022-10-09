@@ -42,7 +42,7 @@ export default function Register() {
             <Header/>
             <div className="register-container">
                 <div className="title">
-                    <h1>Crie uma nova conta.</h1>
+                    <h1>Crie uma nova conta</h1>
                 </div>
                 <div className="form">
                     <Input type='text' onChange={onChangeEmailInput} placeholder='Seu email' icon='carbon:email'/>
