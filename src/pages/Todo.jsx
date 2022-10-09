@@ -1,6 +1,8 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 
+import Task from '../components/Task';
+
 import './Todo.css'
 
 export default class Todo extends React.Component {
@@ -23,7 +25,7 @@ export default class Todo extends React.Component {
                     </div>
                 </form>
                 <div className="tasks-container">
-                    
+
                 </div>
                 <div className="footer-logo">
                     <a href="/">
