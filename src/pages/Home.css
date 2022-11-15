@@ -84,3 +84,38 @@
 
     transition: 200ms;
 }
+
+@media screen and (max-width: 400px) {
+    .home-container {
+        margin: 70px 30px;
+        display: block;
+    }
+
+    .home-container h1 {
+        font-size: 2.3rem;
+        max-width: 310px;
+        line-height: 45px;
+        text-align: left;
+        text-align-last: left;
+    }
+
+    .info {
+        max-width: 300px;
+        margin-top: 30px;
+    }
+
+    .info p {
+        font-size: 1.3rem;
+        text-align: left;
+        text-align-last: left;
+    }
+
+    .button-container {
+        justify-content: start;
+    }
+
+    .button-container .button {
+        padding: 10px 15px;
+        font-weight: 500;        
+    }
+}
