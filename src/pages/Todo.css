@@ -1,12 +1,18 @@
 .todo-container {
     margin: 50px auto;
-    width: 425px;
+    max-width: 425px;
 }
 
 .todo-container .todo-title h1 {
     color: #F9BB1C;
     font-weight: 500;
     font-size: 2.5rem;
+}
+
+@media screen and (max-width: 400px) {
+    .todo-container {
+        max-width: 350px;
+    }
 }
 
 .todo-container .add-task-form {
