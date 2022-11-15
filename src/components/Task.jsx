@@ -5,9 +5,9 @@ import './Task.css'
 
 export default function Task({ title, status, onClick }) {
     return (
-        <div className="task-container">
+        <div className="task-container" style={status === 'complete' ? {opacity: '30%'} : {}}>
             <div className="task-title-box">
-                <h2>{title}</h2>
+                <h2 style={status === 'complete' ? {textDecoration: 'line-through'} : {}}>{title}</h2>
             </div>
             <div className='task-action-box'>
                 <div className="task-action">
