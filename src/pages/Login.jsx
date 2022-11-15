@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Input from '../components/Input';
@@ -49,6 +49,11 @@ export default function Login() {
                     <Input type='text' onChange={onChangeEmailInput} value={userEmail} placeholder='Seu email' icon='carbon:email'/>
                     <Input type='password' onChange={onChangePasswordInput} value={userPassword} placeholder='Sua senha' icon='carbon:password'/>
                     <Button text='Entrar na conta' onClick={loginUser}/>
+                    <div className="auth-link-box">
+                        <p className='link'>
+                            Não tem uma conta? <Link to='/register'>Crie uma.</Link>
+                        </p>
+                    </div>
                 </div>
             </div>
         </>

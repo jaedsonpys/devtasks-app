@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Input from '../components/Input';
@@ -48,6 +48,11 @@ export default function Register() {
                     <Input type='text' onChange={onChangeEmailInput} placeholder='Seu email' icon='carbon:email'/>
                     <Input type='password' onChange={onChangePasswordInput} placeholder='Crie uma senha' icon='carbon:password'/>
                     <Button text='Criar conta' onClick={registerUser}/>
+                    <div className="auth-link-box">
+                        <p className='link'>
+                            Já tem uma conta? <Link to='/login'>Faça login.</Link>
+                        </p>
+                    </div>
                 </div>
             </div>
         </>
