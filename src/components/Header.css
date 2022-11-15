@@ -51,3 +51,14 @@
 .auth-container .login-link:hover h2 {
     text-decoration: underline white;
 }
+
+@media screen and (max-width: 400px) {
+    .auth-container {
+        display: none;
+    }
+
+    .header-container nav {
+        display: flex;
+        justify-content: center;
+    }
+}
