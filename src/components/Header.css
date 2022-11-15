@@ -61,4 +61,8 @@
         display: flex;
         justify-content: center;
     }
+
+    .logo-link h1 {
+        font-size: 1.5rem;
+    }
 }
