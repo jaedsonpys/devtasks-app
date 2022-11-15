@@ -34,3 +34,11 @@
 .form .action-button {
     margin-top: 20px;
 }
+
+@media screen and (max-width: 400px) {
+    .register-container {
+        border: none;
+        border-radius: none;
+        padding: 30px 30px;
+    }
+}
