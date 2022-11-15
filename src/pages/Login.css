@@ -35,10 +35,31 @@
     margin-top: 20px;
 }
 
+.auth-link-box {
+    display: none;
+}
+
 @media screen and (max-width: 400px) {
     .login-container {
         border: none;
         border-radius: none;
         padding: 30px 30px;
+    }
+
+    .auth-link-box {
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .link {
+        color: rgb(136, 136, 136);
+    }
+
+    .link a {
+        color: rgb(136, 136, 136);
+        text-decoration-color: rgb(136, 136, 136);
     }
 }
