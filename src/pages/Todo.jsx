@@ -116,6 +116,7 @@ export default function Todo(){
                 <a href="/">
                     <h1>devtasks</h1>
                 </a>
+                <h2>Made by <a href="https://github.com/jaedsonpys">@jaedsonpys</a></h2>
             </div>
         </div>
     )

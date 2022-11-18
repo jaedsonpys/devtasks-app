@@ -69,6 +69,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin-top: 70px;
 }
 
@@ -80,4 +82,15 @@
     color: #F9BB1C;
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+.footer-logo h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(110, 110, 110);
+}
+
+.footer-logo h2 a {
+    color: rgb(110, 110, 110);
+    text-decoration: underline;
 }
