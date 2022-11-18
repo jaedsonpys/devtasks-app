@@ -74,6 +74,26 @@ export default function Todo(){
             });
     };
 
+    const deleteTask = (taskId) => {
+        const token = localStorage.getItem('uAuth');
+        const task = {
+            'task_id': taskId
+        }
+
+        api
+            .delete('/api/tasks', {headers: {'Authorization': `Bearer ${token}`}, data: task})
+            .then((response) => {
+                if(response.status === 200) {
+                    getTasks();
+                }
+            })
+            .catch(({response}) => {
+                if(response.status === 401) {
+                    navigate('/login')
+                }
+            });
+    };
+
     return (
         <div className="todo-container">
             <div className="todo-title">
@@ -90,7 +110,7 @@ export default function Todo(){
                 </div>
             </form>
             <div className="tasks-container">
-                {tasks.map((data) => <Task title={data.name} key={data.id} id={data.id} onClick={updateTaskStatus} status={data.status}/>)}
+                {tasks.map((data) => <Task title={data.name} key={data.id} id={data.id} onClick={data.status === 'incomplete' ? updateTaskStatus : deleteTask} status={data.status}/>)}
             </div>
             <div className="footer-logo">
                 <a href="/">
