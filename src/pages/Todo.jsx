@@ -90,7 +90,7 @@ export default function Todo(){
                 </div>
             </form>
             <div className="tasks-container">
-                {tasks.map((data) => <Task title={data.name} key={data.id} status={data.status}/>)}
+                {tasks.map((data) => <Task title={data.name} key={data.id} id={data.id} onClick={updateTaskStatus} status={data.status}/>)}
             </div>
             <div className="footer-logo">
                 <a href="/">
