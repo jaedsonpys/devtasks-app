@@ -12,14 +12,14 @@ import './Login.css'
 export default function Login() {
     const navigate = useNavigate();
 
-    const [userEmail, setUserEmail] = useState('');
-    const [userPassword, setUserPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const loginUser = () => {
         api
             .post('/api/login', {
-                email: userEmail,
-                password: userPassword
+                email: email,
+                password: password
             })
             .then((response) => {
                 if(response.status === 201) {
@@ -38,8 +38,8 @@ export default function Login() {
                     <h1>Faça login na sua conta</h1>
                 </div>
                 <div className="form">
-                    <Input type='text' onChange={(e) => setUserEmail(e.target.value)} value={userEmail} placeholder='Seu email' icon='carbon:email'/>
-                    <Input type='password' onChange={(e) => setUserPassword(e.target.value)} value={userPassword} placeholder='Sua senha' icon='carbon:password'/>
+                    <Input type='text' onChange={(e) => setEmail(e.target.value)} value={userEmail} placeholder='Seu email' icon='carbon:email'/>
+                    <Input type='password' onChange={(e) => setPassword(e.target.value)} value={userPassword} placeholder='Sua senha' icon='carbon:password'/>
                     <Button text='Entrar na conta' onClick={loginUser}/>
                     <div className="auth-link-box">
                         <p className='link'>
