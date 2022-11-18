@@ -53,6 +53,27 @@ export default function Todo(){
             });
     }
 
+    const updateTaskStatus = (taskId, taskStatus) => {
+        const token = localStorage.getItem('uAuth');
+        const task = {
+            'task_id': taskId,
+            'task_status': taskStatus
+        }
+
+        api
+            .put('/api/tasks', task, {headers: {'Authorization': `Bearer ${token}`}})
+            .then((response) => {
+                if(response.status === 201) {
+                    getTasks();
+                }
+            })
+            .catch(({response}) => {
+                if(response.status === 401) {
+                    navigate('/login')
+                }
+            });
+    }
+
     return (
         <div className="todo-container">
             <div className="todo-title">
