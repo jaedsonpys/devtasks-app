@@ -38,8 +38,8 @@ export default function Login() {
                     <h1>Faça login na sua conta</h1>
                 </div>
                 <div className="form">
-                    <Input type='text' onChange={(e) => setEmail(e.target.value)} value={userEmail} placeholder='Seu email' icon='carbon:email'/>
-                    <Input type='password' onChange={(e) => setPassword(e.target.value)} value={userPassword} placeholder='Sua senha' icon='carbon:password'/>
+                    <Input type='text' onChange={(e) => setEmail(e.target.value)} value={email} placeholder='Seu email' icon='carbon:email'/>
+                    <Input type='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Sua senha' icon='carbon:password'/>
                     <Button text='Entrar na conta' onClick={loginUser}/>
                     <div className="auth-link-box">
                         <p className='link'>

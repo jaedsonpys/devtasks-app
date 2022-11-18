@@ -37,8 +37,8 @@ export default function Register() {
                     <h1>Crie uma nova conta</h1>
                 </div>
                 <div className="form">
-                    <Input type='text' onChange={(e) => setEmail(e.target.value)} placeholder='Seu email' icon='carbon:email'/>
-                    <Input type='password' onChange={(e) => setPassword(e.target.value)} placeholder='Crie uma senha' icon='carbon:password'/>
+                    <Input type='text' onChange={(e) => setEmail(e.target.value)} value={email} placeholder='Seu email' icon='carbon:email'/>
+                    <Input type='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Crie uma senha' icon='carbon:password'/>
                     <Button text='Criar conta' onClick={registerUser}/>
                     <div className="auth-link-box">
                         <p className='link'>
