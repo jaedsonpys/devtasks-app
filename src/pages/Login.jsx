@@ -30,14 +30,6 @@ export default function Login() {
             .catch((error) => console.error(error));
     }
 
-    const onChangeEmailInput = (e) => {
-        setUserEmail(e.target.value);
-    }
-
-    const onChangePasswordInput = (e) => {
-        setUserPassword(e.target.value);
-    }
-
     return (
         <>
             <Header/>
@@ -46,8 +38,8 @@ export default function Login() {
                     <h1>Faça login na sua conta</h1>
                 </div>
                 <div className="form">
-                    <Input type='text' onChange={onChangeEmailInput} value={userEmail} placeholder='Seu email' icon='carbon:email'/>
-                    <Input type='password' onChange={onChangePasswordInput} value={userPassword} placeholder='Sua senha' icon='carbon:password'/>
+                    <Input type='text' onChange={(e) => setUserEmail(e.target.value)} value={userEmail} placeholder='Seu email' icon='carbon:email'/>
+                    <Input type='password' onChange={(e) => setUserPassword(e.target.value)} value={userPassword} placeholder='Sua senha' icon='carbon:password'/>
                     <Button text='Entrar na conta' onClick={loginUser}/>
                     <div className="auth-link-box">
                         <p className='link'>
