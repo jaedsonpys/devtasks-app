@@ -10,16 +10,16 @@ import api from '../services/api';
 import './Register.css'
 
 export default function Register() {
-    const [userEmail, setUserEmail] = useState('');
-    const [userPassword, setUserPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
 
     const registerUser = () => {
         api
             .post('/api/register', {
-                email: userEmail,
-                password: userPassword
+                email: email,
+                password: password
             })
             .then((response) => {
                 if(response.status === 201) {
@@ -27,14 +27,6 @@ export default function Register() {
                     navigate('/todo');
                 }
             })
-    }
-
-    const onChangeEmailInput = (e) => {
-        setUserEmail(e.target.value);
-    }
-
-    const onChangePasswordInput = (e) => {
-        setUserPassword(e.target.value);
     }
 
     return (
@@ -45,8 +37,8 @@ export default function Register() {
                     <h1>Crie uma nova conta</h1>
                 </div>
                 <div className="form">
-                    <Input type='text' onChange={onChangeEmailInput} placeholder='Seu email' icon='carbon:email'/>
-                    <Input type='password' onChange={onChangePasswordInput} placeholder='Crie uma senha' icon='carbon:password'/>
+                    <Input type='text' onChange={(e) => setEmail(e.target.value)} placeholder='Seu email' icon='carbon:email'/>
+                    <Input type='password' onChange={(e) => setPassword(e.target.value)} placeholder='Crie uma senha' icon='carbon:password'/>
                     <Button text='Criar conta' onClick={registerUser}/>
                     <div className="auth-link-box">
                         <p className='link'>
