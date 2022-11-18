@@ -32,6 +32,7 @@ export default function Todo(){
     }
 
     const addTask = () => {
+        const token = localStorage.getItem('uAuth');
         const task = {
             'task_name': taskName,
         }
@@ -60,7 +61,7 @@ export default function Todo(){
                     <input type="text" onChange={(e) => setTaskName(e.target.value)}
                         value={taskName} placeholder='Adicionar nova tarefa'
                     />
-                    <div className="icon-box">
+                    <div className="icon-box" onClick={addTask}>
                         <Icon className='add-icon' icon='carbon:add'/>
                     </div>
                 </div>
