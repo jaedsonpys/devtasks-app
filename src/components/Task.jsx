@@ -11,7 +11,7 @@ export default function Task({ title, status, id, onClick }) {
             </div>
             <div className='task-action-box'>
                 <div className="task-action">
-                    <button onClick={() => onClick(id, 'complete')}>
+                    <button onClick={() => onClick(id)}>
                         {status === 'incomplete' ? <Icon icon='eva:checkmark-outline'/> : <Icon icon="iconoir:cancel"/>}
                     </button>
                 </div>

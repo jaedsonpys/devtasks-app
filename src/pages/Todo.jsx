@@ -51,13 +51,13 @@ export default function Todo(){
                     navigate('/login')
                 }
             });
-    }
+    };
 
-    const updateTaskStatus = (taskId, taskStatus) => {
+    const updateTaskStatus = (taskId) => {
         const token = localStorage.getItem('uAuth');
         const task = {
             'task_id': taskId,
-            'task_status': taskStatus
+            'task_status': 'complete'
         }
 
         api
@@ -72,7 +72,7 @@ export default function Todo(){
                     navigate('/login')
                 }
             });
-    }
+    };
 
     return (
         <div className="todo-container">
