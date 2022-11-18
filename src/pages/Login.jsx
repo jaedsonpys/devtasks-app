@@ -15,6 +15,8 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [errorMsg, setErrorMsg] = useState('');
+
     const loginUser = () => {
         api
             .post('/api/login', {
@@ -27,7 +29,11 @@ export default function Login() {
                     navigate('/todo');
                 }
             })
-            .catch((error) => console.error(error));
+            .catch(({response}) => {
+                if(response.status === 401) {
+                    setErrorMsg('Email ou senha incorretos');
+                }
+            });
     }
 
     return (
@@ -40,6 +46,9 @@ export default function Login() {
                 <div className="form">
                     <Input type='text' onChange={(e) => setEmail(e.target.value)} value={email} placeholder='Seu email' icon='carbon:email'/>
                     <Input type='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Sua senha' icon='carbon:password'/>
+                    <div className="alert-box">
+                        <p className='alert-text'>{errorMsg}</p>
+                    </div>
                     <Button text='Entrar na conta' onClick={loginUser}/>
                     <div className="auth-link-box">
                         <p className='link'>
