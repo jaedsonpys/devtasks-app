@@ -1,11 +1,20 @@
-import React from 'react';
+import { React, useState} from 'react';
 import { Icon } from '@iconify/react';
 
 import Task from '../components/Task';
+import api from '../services/api';
 
-import './Todo.css'
+import './Todo.css';
 
 export default function Todo(){
+    const [tasks, setTasks] = useState([]);
+
+    const addNewTask = (newTask) => {
+        const taskList = tasks;
+        taskList.push(newTask);
+        setTasks(taskList);
+    }
+
     return (
         <div className="todo-container">
             <div className="todo-title">
