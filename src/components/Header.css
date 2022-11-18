@@ -52,7 +52,7 @@
     text-decoration: underline white;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 650px) {
     .auth-container {
         display: none;
     }
