@@ -10,10 +10,12 @@ import api from '../services/api';
 import './Register.css'
 
 export default function Register() {
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const navigate = useNavigate();
+    const [errorMsg, setErrorMsg] = useState('');
 
     const registerUser = () => {
         api
@@ -25,6 +27,11 @@ export default function Register() {
                 if(response.status === 201) {
                     localStorage.setItem('uAuth', response.data.token);
                     navigate('/todo');
+                }
+            })
+            .catch(({response}) => {
+                if(response.status === 409) {
+                    setErrorMsg('O email já está sendo utilizado')
                 }
             })
     }
@@ -39,6 +46,9 @@ export default function Register() {
                 <div className="form">
                     <Input type='text' onChange={(e) => setEmail(e.target.value)} value={email} placeholder='Seu email' icon='carbon:email'/>
                     <Input type='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Crie uma senha' icon='carbon:password'/>
+                    <div className="alert-box">
+                        <p className='alert-text'>{errorMsg}</p>
+                    </div>
                     <Button text='Criar conta' onClick={registerUser}/>
                     <div className="auth-link-box">
                         <p className='link'>

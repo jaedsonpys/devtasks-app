@@ -39,6 +39,15 @@
     display: none;
 }
 
+.alert-box {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.alert-box .alert-text {
+    color: rgb(230, 36, 36)
+}
+
 @media screen and (max-width: 650px) {
     .register-container {
         border: none;
