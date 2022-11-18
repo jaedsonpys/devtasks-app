@@ -9,6 +9,7 @@ import './Todo.css';
 
 export default function Todo(){
     const [tasks, setTasks] = useState([]);
+    const [taskName, setTaskName] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -37,7 +38,9 @@ export default function Todo(){
             </div>
             <form className='add-task-form'>
                 <div className="add-task-input-box">
-                    <input type="text" placeholder='Adicionar nova tarefa'/>
+                    <input type="text" onChange={(e) => setTaskName(e.target.value)}
+                        value={taskName} placeholder='Adicionar nova tarefa'
+                    />
                     <div className="icon-box">
                         <Icon className='add-icon' icon='carbon:add'/>
                     </div>
