@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 import Header from '../components/Header';
@@ -10,6 +10,10 @@ import api from '../services/api';
 import './Login.css'
 
 export default function Login() {
+    useEffect(() => {
+        document.title = 'Entre em sua conta DevTasks';
+    })
+
     const navigate = useNavigate();
 
     const [email, setEmail] = useState('');

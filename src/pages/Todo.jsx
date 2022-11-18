@@ -13,6 +13,7 @@ export default function Todo(){
     const navigate = useNavigate();
 
     useEffect(() => {
+        document.title = 'Suas lista de tarefas';
         getTasks();
     }, []);
 
