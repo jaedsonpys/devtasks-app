@@ -39,7 +39,7 @@
     display: none;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 650px) {
     .login-container {
         border: none;
         border-radius: none;
