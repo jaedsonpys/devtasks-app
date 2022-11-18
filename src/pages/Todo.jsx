@@ -31,6 +31,25 @@ export default function Todo(){
             })
     }
 
+    const addTask = () => {
+        const task = {
+            'task_name': taskName,
+        }
+
+        api
+            .post('/api/tasks', task, {headers: {'Authorization': `Bearer ${token}`}})
+            .then((response) => {
+                if(response.status === 201) {
+                    getTasks();
+                }
+            })
+            .catch(({response}) => {
+                if(response.status === 401) {
+                    navigate('/login')
+                }
+            })
+    }
+
     return (
         <div className="todo-container">
             <div className="todo-title">
