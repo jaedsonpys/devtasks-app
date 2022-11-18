@@ -31,7 +31,7 @@ export default function Login() {
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    setErrorMsg('Email ou senha incorretos');
+                    setErrorMsg('Email ou senha incorreto');
                 }
             });
     }
