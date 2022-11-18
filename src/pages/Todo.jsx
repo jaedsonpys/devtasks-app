@@ -37,6 +37,8 @@ export default function Todo(){
             'task_name': taskName,
         }
 
+        setTaskName('');
+
         api
             .post('/api/tasks', task, {headers: {'Authorization': `Bearer ${token}`}})
             .then((response) => {
@@ -48,7 +50,7 @@ export default function Todo(){
                 if(response.status === 401) {
                     navigate('/login')
                 }
-            })
+            });
     }
 
     return (
