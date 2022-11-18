@@ -26,10 +26,20 @@ export default function App() {
         }
     }
 
+    const RenderHome = () => {
+        let logged = checkLogin();
+
+        if(logged) {
+            return <Navigate to='/todo'/>;
+        } else {
+            return <Home/>;
+        }
+    }
+
     return (
         <Router>
             <Routes>
-                <Route exact path='/' element={<Home/>}/>
+            <Route exact path='/' element={<RenderHome/>}/>
             </Routes>
             <Routes>
                 <Route exact path='/register' element={<Register/>}/>
