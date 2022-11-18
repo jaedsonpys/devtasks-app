@@ -26,31 +26,39 @@ export default function App() {
         }
     }
 
-    const RenderHome = () => {
+    const RedirectIfLogged = (props) => {
         let logged = checkLogin();
 
         if(logged) {
             return <Navigate to='/todo'/>;
         } else {
-            return <Home/>;
+            return props.children;
         }
     }
 
     return (
         <Router>
             <Routes>
-            <Route exact path='/' element={<RenderHome/>}/>
+            <Route exact path='/' element={
+                <RedirectIfLogged>
+                    <Home/>
+                </RedirectIfLogged>
+            }/>
             </Routes>
             <Routes>
                 <Route exact path='/register' element={<Register/>}/>
             </Routes>
             <Routes>
-                <Route exact path='/login' element={<Login/>}/>
+                <Route exact path='/login' element={
+                    <RedirectIfLogged>
+                        <Login/>
+                    </RedirectIfLogged>
+                }/>
             </Routes>
             <Routes>
                 <Route exact path='/todo' element={
                     <PrivateRoute>
-                        <Todo></Todo>
+                        <Todo/>
                     </PrivateRoute>
                 }/>
             </Routes>
