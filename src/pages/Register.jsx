@@ -22,22 +22,27 @@ export default function Register() {
     const [errorMsg, setErrorMsg] = useState('');
 
     const registerUser = () => {
-        api
-            .post('/api/register', {
-                email: email,
-                password: password
-            })
-            .then((response) => {
-                if(response.status === 201) {
-                    localStorage.setItem('uAuth', response.data.token);
-                    navigate('/todo');
-                }
-            })
-            .catch(({response}) => {
-                if(response.status === 409) {
-                    setErrorMsg('O email já está sendo utilizado')
-                }
-            })
+        if(email.length === 0 || password.length === 0) {
+            setErrorMsg('Preencha email e senha');
+        } else {
+            setErrorMsg('');
+            api
+                .post('/api/register', {
+                    email: email,
+                    password: password
+                })
+                .then((response) => {
+                    if(response.status === 201) {
+                        localStorage.setItem('uAuth', response.data.token);
+                        navigate('/todo');
+                    }
+                })
+                .catch(({response}) => {
+                    if(response.status === 409) {
+                        setErrorMsg('O email já está sendo utilizado')
+                    }
+                })
+        }
     }
 
     return (

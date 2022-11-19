@@ -22,22 +22,27 @@ export default function Login() {
     const [errorMsg, setErrorMsg] = useState('');
 
     const loginUser = () => {
-        api
-            .post('/api/login', {
-                email: email,
-                password: password
-            })
-            .then((response) => {
-                if(response.status === 201) {
-                    localStorage.setItem('uAuth', response.data.token);
-                    navigate('/todo');
-                }
-            })
-            .catch(({response}) => {
-                if(response.status === 401) {
-                    setErrorMsg('Email ou senha incorreto');
-                }
-            });
+        if(email.length === 0 || password.length === 0) {
+            setErrorMsg('Preencha email e senha');
+        } else {
+            setErrorMsg('');
+            api
+                .post('/api/login', {
+                    email: email,
+                    password: password
+                })
+                .then((response) => {
+                    if(response.status === 201) {
+                        localStorage.setItem('uAuth', response.data.token);
+                        navigate('/todo');
+                    }
+                })
+                .catch(({response}) => {
+                    if(response.status === 401) {
+                        setErrorMsg('Email ou senha incorreto');
+                    }
+                });
+        }
     }
 
     return (
