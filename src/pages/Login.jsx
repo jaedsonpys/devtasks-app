@@ -11,7 +11,7 @@ import './Login.css'
 
 export default function Login() {
     useEffect(() => {
-        document.title = 'Entre em sua conta DevTasks';
+        document.title = 'Entre em sua conta';
     })
 
     const navigate = useNavigate();

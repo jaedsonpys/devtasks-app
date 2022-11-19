@@ -11,7 +11,7 @@ import './Register.css'
 
 export default function Register() {
     useEffect(() => {
-        document.title = 'Crie uma conta DevTasks';
+        document.title = 'Crie já sua conta';
     })
 
     const navigate = useNavigate();

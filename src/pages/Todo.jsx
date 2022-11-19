@@ -16,7 +16,7 @@ export default function Todo(){
     const [loadingStatus, setLoadingStatus] = useState(false);
 
     useEffect(() => {
-        document.title = 'Suas lista de tarefas';
+        document.title = 'Veja sua lista de tarefas';
         getTasks();
     }, []);
 
