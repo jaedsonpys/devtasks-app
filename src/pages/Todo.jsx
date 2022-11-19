@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 
 import Task from '../components/Task';
 import api from '../services/api';
+import LoadingAnimation from '../components/Loading';
 
 import './Todo.css';
 
@@ -99,6 +100,9 @@ export default function Todo(){
         <div className="todo-container">
             <div className="todo-title">
                 <h1>Suas tarefas</h1>
+                <div className="loading-container">
+                    <LoadingAnimation/>
+                </div>
             </div>
             <form className='add-task-form' onSubmit={(e) => e.preventDefault()}>
                 <div className="add-task-input-box">

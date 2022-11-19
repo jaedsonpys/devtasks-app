@@ -4,6 +4,12 @@
     padding: 20px
 }
 
+.todo-container .todo-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .todo-container .todo-title h1 {
     color: #F9BB1C;
     font-weight: 500;
