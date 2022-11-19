@@ -53,7 +53,7 @@ export default function Login() {
                     <div className="alert-box">
                         <p className='alert-text'>{errorMsg}</p>
                     </div>
-                    <Button text='Entrar na conta' onClick={loginUser}/>
+                    <Button text='Entrar na conta' type='submit' onClick={loginUser}/>
                     <div className="auth-link-box">
                         <p className='link'>
                             Não tem uma conta? <Link to='/register'>Crie uma.</Link>

@@ -53,7 +53,7 @@ export default function Register() {
                     <div className="alert-box">
                         <p className='alert-text'>{errorMsg}</p>
                     </div>
-                    <Button text='Criar conta' onClick={registerUser}/>
+                    <Button text='Criar conta' type='submit' onClick={registerUser}/>
                     <div className="auth-link-box">
                         <p className='link'>
                             Já tem uma conta? <Link to='/login'>Faça login.</Link>
