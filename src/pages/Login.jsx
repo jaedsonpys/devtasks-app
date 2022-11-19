@@ -47,7 +47,7 @@ export default function Login() {
                 <div className="title">
                     <h1>Faça login na sua conta</h1>
                 </div>
-                <div className="form">
+                <form className="form" onSubmit={(e) => e.preventDefault()}>
                     <Input type='text' onChange={(e) => setEmail(e.target.value)} value={email} placeholder='Seu email' icon='carbon:email'/>
                     <Input type='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Sua senha' icon='carbon:password'/>
                     <div className="alert-box">
@@ -59,7 +59,7 @@ export default function Login() {
                             Não tem uma conta? <Link to='/register'>Crie uma.</Link>
                         </p>
                     </div>
-                </div>
+                </form>
             </div>
         </>
     )

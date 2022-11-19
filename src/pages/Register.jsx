@@ -47,7 +47,7 @@ export default function Register() {
                 <div className="title">
                     <h1>Crie uma nova conta</h1>
                 </div>
-                <div className="form">
+                <form className="form" onSubmit={(e) => e.preventDefault()}>
                     <Input type='text' onChange={(e) => setEmail(e.target.value)} value={email} placeholder='Seu email' icon='carbon:email'/>
                     <Input type='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Crie uma senha' icon='carbon:password'/>
                     <div className="alert-box">
@@ -59,7 +59,7 @@ export default function Register() {
                             Já tem uma conta? <Link to='/login'>Faça login.</Link>
                         </p>
                     </div>
-                </div>
+                </form>
             </div>
         </>
     )
