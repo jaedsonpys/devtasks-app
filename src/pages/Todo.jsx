@@ -100,14 +100,14 @@ export default function Todo(){
             <div className="todo-title">
                 <h1>Suas tarefas</h1>
             </div>
-            <form className='add-task-form'>
+            <form className='add-task-form' onSubmit={(e) => e.preventDefault()}>
                 <div className="add-task-input-box">
                     <input type="text" onChange={(e) => setTaskName(e.target.value)}
                         value={taskName} placeholder='Adicionar nova tarefa'
                     />
-                    <div className="icon-box" onClick={addTask}>
+                    <button className="add-icon-button" type="submit" onClick={addTask}>
                         <Icon className='add-icon' icon='carbon:add'/>
-                    </div>
+                    </button>
                 </div>
             </form>
             <div className="tasks-container">
