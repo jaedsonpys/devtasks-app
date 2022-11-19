@@ -27,7 +27,18 @@ export default function Todo(){
         api
             .get('/api/tasks', {headers: {'Authorization': `Bearer ${token}`}})
             .then((response) => {
-                setTasks(response.data);
+                let completeTasks = [];
+                let incompleteTasks = [];
+
+                response.data.forEach(value => {
+                    if(value['status'] === 'complete') {
+                        completeTasks.push(value);
+                    } else {
+                        incompleteTasks.push(value);
+                    }
+                });
+
+                setTasks([...incompleteTasks, ...completeTasks]);
             })
             .catch(({response}) => {
                 if(response.status === 401) {
