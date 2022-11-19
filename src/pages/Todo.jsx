@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 
 import Task from '../components/Task';
 import api from '../services/api';
