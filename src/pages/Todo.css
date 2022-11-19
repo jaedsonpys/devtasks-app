@@ -24,19 +24,21 @@
     height: 45px;
 }
 
-.todo-container .add-task-form .add-task-input-box .icon-box {
+.todo-container .add-task-form .add-task-input-box .add-icon-button {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     border-radius: 5px;
+    border: none;
+    background-color: unset;
 }
 
-.todo-container .add-task-form .add-task-input-box .icon-box:hover {
+.todo-container .add-task-form .add-task-input-box .add-icon-button:hover {
     background-color: rgb(53, 53, 53);
 }
 
-.todo-container .add-task-form .add-task-input-box .icon-box .add-icon {
+.todo-container .add-task-form .add-task-input-box .add-icon-button .add-icon {
     font-size: 2rem;
     color: #F9BB1C;
 }
