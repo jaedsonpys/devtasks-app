@@ -9,9 +9,11 @@ import LoadingAnimation from '../components/Loading';
 import './Todo.css';
 
 export default function Todo(){
+    const navigate = useNavigate();
+
     const [tasks, setTasks] = useState([]);
     const [taskName, setTaskName] = useState('');
-    const navigate = useNavigate();
+    const [loadingStatus, setLoadingStatus] = useState(false);
 
     useEffect(() => {
         document.title = 'Suas lista de tarefas';
@@ -19,6 +21,7 @@ export default function Todo(){
     }, []);
 
     const getTasks = () => {
+        setLoadingStatus(true);
         const token = localStorage.getItem('uAuth');
 
         api
@@ -31,9 +34,11 @@ export default function Todo(){
                     navigate('/login')
                 }
             })
+            .finally(() => setLoadingStatus(false));
     }
 
     const addTask = () => {
+        setLoadingStatus(true);
         const token = localStorage.getItem('uAuth');
         const task = {
             'task_name': taskName,
@@ -52,10 +57,13 @@ export default function Todo(){
                 if(response.status === 401) {
                     navigate('/login')
                 }
-            });
+            })
+            .finally(() => setLoadingStatus(false));
+
     };
 
     const updateTaskStatus = (taskId) => {
+        setLoadingStatus(true);
         const token = localStorage.getItem('uAuth');
         const task = {
             'task_id': taskId,
@@ -73,10 +81,12 @@ export default function Todo(){
                 if(response.status === 401) {
                     navigate('/login')
                 }
-            });
+            })
+            .finally(() => setLoadingStatus(false));
     };
 
     const deleteTask = (taskId) => {
+        setLoadingStatus(true);
         const token = localStorage.getItem('uAuth');
         const task = {
             'task_id': taskId
@@ -93,7 +103,8 @@ export default function Todo(){
                 if(response.status === 401) {
                     navigate('/login')
                 }
-            });
+            })
+            .finally(() => setLoadingStatus(false));
     };
 
     return (
@@ -101,7 +112,9 @@ export default function Todo(){
             <div className="todo-title">
                 <h1>Suas tarefas</h1>
                 <div className="loading-container">
-                    <LoadingAnimation/>
+                    {loadingStatus && 
+                        <LoadingAnimation/>
+                    }
                 </div>
             </div>
             <form className='add-task-form' onSubmit={(e) => e.preventDefault()}>
