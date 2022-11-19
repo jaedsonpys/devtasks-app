@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "DevTasks",
+  "name": "DevTasks App",
+  "description": "Crie suas tarefas de onde estiver.",
   "icons": [
     {
       "src": "favicon.ico",
