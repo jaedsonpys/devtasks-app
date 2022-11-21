@@ -42,7 +42,7 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    localStorage.remoteItem('uAuth');
+                    localStorage.removeItem('uAuth');
                     navigate('/login')
                 }
             })
@@ -67,7 +67,7 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    localStorage.remoteItem('uAuth');
+                    localStorage.removeItem('uAuth');
                     navigate('/login')
                 }
             })
@@ -92,7 +92,7 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    localStorage.remoteItem('uAuth');
+                    localStorage.removeItem('uAuth');
                     navigate('/login')
                 }
             })
@@ -115,7 +115,7 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    localStorage.remoteItem('uAuth');
+                    localStorage.removeItem('uAuth');
                     navigate('/login')
                 }
             })
