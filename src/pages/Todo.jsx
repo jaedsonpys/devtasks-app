@@ -67,7 +67,7 @@ export default function Todo(){
         setLoadingStatus(true);
         const token = localStorage.getItem('uAuth');
         const task = {
-            'task_name': taskName,
+            'name': taskName,
         }
 
         setTaskName('');
@@ -92,8 +92,8 @@ export default function Todo(){
         setLoadingStatus(true);
         const token = localStorage.getItem('uAuth');
         const task = {
-            'task_id': taskId,
-            'task_status': 'complete'
+            'id': taskId,
+            'status': 'complete'
         }
 
         api
@@ -115,7 +115,7 @@ export default function Todo(){
         setLoadingStatus(true);
         const token = localStorage.getItem('uAuth');
         const task = {
-            'task_id': taskId
+            'id': taskId
         }
 
         api
