@@ -20,6 +20,21 @@ export default function Todo(){
         getTasks();
     }, []);
 
+    const refreshToken = () => {
+        localStorage.removeItem('uAuth');
+
+        api
+            .get('/api/refreshToken')
+            .then((response) => {
+                localStorage.setItem('uAuth', response.data.token);
+            })
+            .catch(({response}) => {
+                if(response.status === 401) {
+                    navigate('/login')
+                }
+            });
+    }
+
     const getTasks = () => {
         setLoadingStatus(true);
         const token = localStorage.getItem('uAuth');
@@ -42,8 +57,7 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    localStorage.removeItem('uAuth');
-                    navigate('/login')
+                    refreshToken();
                 }
             })
             .finally(() => setLoadingStatus(false));
@@ -67,8 +81,7 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    localStorage.removeItem('uAuth');
-                    navigate('/login')
+                    refreshToken();
                 }
             })
             .finally(() => setLoadingStatus(false));
@@ -92,8 +105,7 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    localStorage.removeItem('uAuth');
-                    navigate('/login')
+                    refreshToken();
                 }
             })
             .finally(() => setLoadingStatus(false));
@@ -115,8 +127,7 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    localStorage.removeItem('uAuth');
-                    navigate('/login')
+                    refreshToken();
                 }
             })
             .finally(() => setLoadingStatus(false));
