@@ -24,7 +24,7 @@ export default function Todo(){
         localStorage.removeItem('uAuth');
 
         api
-            .get('/api/refreshToken', {withCredentials: true})
+            .get('/api/refreshToken')
             .then((response) => {
                 localStorage.setItem('uAuth', response.data.token);
                 callback();
