@@ -20,13 +20,14 @@ export default function Todo(){
         getTasks();
     }, []);
 
-    const refreshToken = () => {
+    const refreshToken = (callback) => {
         localStorage.removeItem('uAuth');
 
         api
-            .get('/api/refreshToken')
+            .get('/api/refreshToken', {withCredentials: true})
             .then((response) => {
                 localStorage.setItem('uAuth', response.data.token);
+                callback();
             })
             .catch(({response}) => {
                 if(response.status === 401) {
@@ -57,7 +58,9 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    refreshToken();
+                    refreshToken(() => {
+                        getTasks();
+                    });
                 }
             })
             .finally(() => setLoadingStatus(false));
@@ -70,8 +73,6 @@ export default function Todo(){
             'name': taskName,
         }
 
-        setTaskName('');
-
         api
             .post('/api/tasks', task, {headers: {'Authorization': `Bearer ${token}`}})
             .then((response) => {
@@ -81,11 +82,14 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    refreshToken();
+                    refreshToken(() => {
+                        addTask();
+                    });
                 }
             })
             .finally(() => setLoadingStatus(false));
 
+        setTaskName('');
     };
 
     const updateTaskStatus = (taskId) => {
@@ -105,7 +109,9 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    refreshToken();
+                    refreshToken(() => {
+                        updateTaskStatus(taskId);
+                    });
                 }
             })
             .finally(() => setLoadingStatus(false));
@@ -127,7 +133,9 @@ export default function Todo(){
             })
             .catch(({response}) => {
                 if(response.status === 401) {
-                    refreshToken();
+                    refreshToken(() => {
+                        deleteTask(taskId);
+                    });
                 }
             })
             .finally(() => setLoadingStatus(false));
@@ -156,9 +164,9 @@ export default function Todo(){
             <ul className="tasks-container">
                 {tasks.map((data) => {
                     return (
-                        <li>
+                        <li key={data.id}>
                             <Task
-                                title={data.name} key={data.id} id={data.id}
+                                title={data.name} id={data.id}
                                 onClick={data.status === 'incomplete' ? updateTaskStatus : deleteTask}
                                 status={data.status}
                             />
