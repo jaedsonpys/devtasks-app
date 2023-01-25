@@ -44,17 +44,26 @@ export default function Todo(){
         api
             .get('/api/tasks', {headers: {'Authorization': `Bearer ${token}`}})
             .then((response) => {
-                let tasksByTag = {}
+                let tasksByTag = {};
+                let globalTags = {};
 
                 response.data.forEach(value => {
-                    if(value['tag'] in tasksByTag) {
-                        tasksByTag[value['tag']].push(value)
+                    if(value.tag == 'global') {
+                        if(value['tag'] in globalTags) {
+                            globalTags[value['tag']].push(value);
+                        } else {
+                            globalTags[value['tag']] = [value];
+                        }
                     } else {
-                        tasksByTag[value['tag']] = [value]
+                        if(value['tag'] in tasksByTag) {
+                            tasksByTag[value['tag']].push(value);
+                        } else {
+                            tasksByTag[value['tag']] = [value];
+                        }
                     }
-                });
+                })
 
-                setTasks(tasksByTag)
+                setTasks({...globalTags, ...tasksByTag});
             })
             .catch(({response}) => {
                 if(response.status === 401) {
@@ -170,7 +179,9 @@ export default function Todo(){
             <div className="tasks-container">
                 {Object.entries(tasks).map(([tag, tasksData]) => (
                     <ul className="tasks-tag">
-                        <h3>{tag}</h3>
+                        {tag !== 'global' && (
+                            <h3>{tag}</h3>
+                        )}
                         {tasksData.map(data => (
                             <li key={data.id}>
                                 <Task
