@@ -160,7 +160,7 @@ export default function Todo(){
                 </div>
                 <div className="add-task-input-box">
                     <input type="text" onChange={(e) => setTaskName(e.target.value)}
-                        value={taskName} placeholder='Adicionar nova tarefa'
+                        value={taskName} placeholder='Nome da tarefa'
                     />
                     <button className="add-icon-button" type="submit" onClick={addTask}>
                         <Icon className='add-icon' icon='carbon:add'/>
