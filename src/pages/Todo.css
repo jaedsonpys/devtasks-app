@@ -87,6 +87,16 @@
     margin-top: 50px;
 }
 
+.tasks-container .tasks-tag {
+    margin-bottom: 20px;
+}
+
+.tasks-container .tasks-tag h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(110, 110, 110);
+}
+
 .tasks-container li {
     list-style: none;
 }
