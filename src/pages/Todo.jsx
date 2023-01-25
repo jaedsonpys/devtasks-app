@@ -72,6 +72,7 @@ export default function Todo(){
         const token = localStorage.getItem('uAuth');
         const task = {
             'name': taskName,
+            'tag': taskTag || 'global'
         }
 
         api
