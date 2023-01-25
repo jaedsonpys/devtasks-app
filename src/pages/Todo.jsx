@@ -76,8 +76,14 @@ export default function Todo(){
     }
 
     const addTask = () => {
+        if(!taskName) {
+            alert('Por favor insira o nome da tarefa');
+            return;
+        }
+
         setLoadingStatus(true);
         const token = localStorage.getItem('uAuth');
+
         const task = {
             'name': taskName,
             'tag': taskTag || 'global'
