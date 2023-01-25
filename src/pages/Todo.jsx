@@ -11,7 +11,7 @@ import './Todo.css';
 export default function Todo(){
     const navigate = useNavigate();
 
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState({});
     const [taskTag, setTaskTag] = useState('');
     const [taskName, setTaskName] = useState('');
     const [loadingStatus, setLoadingStatus] = useState(false);
@@ -44,18 +44,17 @@ export default function Todo(){
         api
             .get('/api/tasks', {headers: {'Authorization': `Bearer ${token}`}})
             .then((response) => {
-                let completeTasks = [];
-                let incompleteTasks = [];
+                let tasksByTag = {}
 
                 response.data.forEach(value => {
-                    if(value['status'] === 'complete') {
-                        completeTasks.push(value);
+                    if(value['tag'] in tasksByTag) {
+                        tasksByTag[value['tag']].push(value)
                     } else {
-                        incompleteTasks.push(value);
+                        tasksByTag[value['tag']] = [value]
                     }
                 });
 
-                setTasks([...incompleteTasks, ...completeTasks]);
+                setTasks(tasksByTag)
             })
             .catch(({response}) => {
                 if(response.status === 401) {
@@ -168,17 +167,22 @@ export default function Todo(){
                     </button>
                 </div>
             </form>
-            <ul className="tasks-container">
-                {tasks.map((data) => (
-                    <li key={data.id}>
-                        <Task
-                            title={data.name} id={data.id}
-                            onClick={data.status === 'incomplete' ? updateTaskStatus : deleteTask}
-                            status={data.status}
-                        />
-                    </li>
+            <div className="tasks-container">
+                {Object.entries(tasks).map(([tag, tasksData]) => (
+                    <ul className="tasks-tag">
+                        <h3>{tag}</h3>
+                        {tasksData.map(data => (
+                            <li key={data.id}>
+                                <Task
+                                    title={data.name} id={data.id}
+                                    onClick={data.status === 'incomplete' ? updateTaskStatus : deleteTask}
+                                    status={data.status}
+                                />
+                            </li>
+                        ))}
+                    </ul>
                 ))}
-            </ul>
+            </div>
             <div className="footer-logo">
                 <a href="/">
                     <h1>devtasks</h1>
