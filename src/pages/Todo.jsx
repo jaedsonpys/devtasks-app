@@ -162,17 +162,15 @@ export default function Todo(){
                 </div>
             </form>
             <ul className="tasks-container">
-                {tasks.map((data) => {
-                    return (
-                        <li key={data.id}>
-                            <Task
-                                title={data.name} id={data.id}
-                                onClick={data.status === 'incomplete' ? updateTaskStatus : deleteTask}
-                                status={data.status}
-                            />
-                        </li>
-                    )
-                })}
+                {tasks.map((data) => (
+                    <li key={data.id}>
+                        <Task
+                            title={data.name} id={data.id}
+                            onClick={data.status === 'incomplete' ? updateTaskStatus : deleteTask}
+                            status={data.status}
+                        />
+                    </li>
+                ))}
             </ul>
             <div className="footer-logo">
                 <a href="/">
