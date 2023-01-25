@@ -12,6 +12,7 @@ export default function Todo(){
     const navigate = useNavigate();
 
     const [tasks, setTasks] = useState([]);
+    const [taskTag, setTaskTag] = useState('');
     const [taskName, setTaskName] = useState('');
     const [loadingStatus, setLoadingStatus] = useState(false);
 
@@ -152,6 +153,11 @@ export default function Todo(){
                 </div>
             </div>
             <form className='add-task-form' onSubmit={(e) => e.preventDefault()}>
+                <div className="add-task-tag-box">
+                    <input type="text" onChange={(e) => setTaskTag(e.target.value)}
+                        value={taskTag} placeholder='Tag'
+                    />
+                </div>
                 <div className="add-task-input-box">
                     <input type="text" onChange={(e) => setTaskName(e.target.value)}
                         value={taskName} placeholder='Adicionar nova tarefa'
