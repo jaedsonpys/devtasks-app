@@ -185,7 +185,7 @@ export default function Todo(){
             <div className="tasks-container">
                 {Object.entries(tasks).map(([tag, tasksData]) => (
                     <ul className="tasks-tag">
-                        {tag !== 'global' || tag !== undefined && (
+                        {tag !== 'global' && tag !== undefined && tag !== null  && (
                             <h3>{tag}</h3>
                         )}
                         {tasksData.map(data => (
