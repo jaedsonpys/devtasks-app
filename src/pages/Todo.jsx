@@ -19,7 +19,7 @@ export default function Todo(){
     useEffect(() => {
         document.title = 'Veja sua lista de tarefas';
         getTasks();
-    }, []);
+    });
 
     const refreshToken = (callback) => {
         localStorage.removeItem('uAuth');
@@ -48,7 +48,7 @@ export default function Todo(){
                 let globalTags = {};
 
                 response.data.forEach(value => {
-                    if(value.tag == 'global') {
+                    if(value.tag === 'global') {
                         if(value['tag'] in globalTags) {
                             globalTags[value['tag']].push(value);
                         } else {
