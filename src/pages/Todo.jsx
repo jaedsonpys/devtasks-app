@@ -19,7 +19,7 @@ export default function Todo(){
     useEffect(() => {
         document.title = 'Veja sua lista de tarefas';
         getTasks();
-    });
+    }, []);
 
     const refreshToken = (callback) => {
         localStorage.removeItem('uAuth');
