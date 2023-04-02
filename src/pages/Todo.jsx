@@ -44,26 +44,7 @@ export default function Todo(){
         api
             .get('/api/tasks', {headers: {'Authorization': `Bearer ${token}`}})
             .then((response) => {
-                let tasksByTag = {};
-                let globalTags = {};
-
-                response.data.forEach(value => {
-                    if(value.tag === 'global') {
-                        if(value['tag'] in globalTags) {
-                            globalTags[value['tag']].push(value);
-                        } else {
-                            globalTags[value['tag']] = [value];
-                        }
-                    } else {
-                        if(value['tag'] in tasksByTag) {
-                            tasksByTag[value['tag']].push(value);
-                        } else {
-                            tasksByTag[value['tag']] = [value];
-                        }
-                    }
-                })
-
-                setTasks({...globalTags, ...tasksByTag});
+                setTasks(response.data);
             })
             .catch(({response}) => {
                 if(response.status === 401) {
@@ -183,17 +164,17 @@ export default function Todo(){
                 </div>
             </form>
             <div className="tasks-container">
-                {Object.entries(tasks).map(([tag, tasksData]) => (
-                    <ul className="tasks-tag">
-                        {(tag !== 'global' && tag !== undefined && tag !== null)  && (
+                {Object.keys(tasks).map((tag, index) => (
+                    <ul className="tasks-tag" >
+                        {(tag !== 'global' && tag) && (
                             <h3>{tag}</h3>
                         )}
-                        {tasksData.map(data => (
-                            <li key={data.id}>
+                        {tasks[tag].map((task, index) => (
+                            <li key={task.id}>
                                 <Task
-                                    title={data.name} id={data.id}
-                                    onClick={data.status === 'incomplete' ? updateTaskStatus : deleteTask}
-                                    status={data.status}
+                                    title={task.name} id={task.id}
+                                    onClick={task.status === 'incomplete' ? updateTaskStatus : deleteTask}
+                                    status={task.status}
                                 />
                             </li>
                         ))}
